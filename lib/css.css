@@ -1,0 +1,466 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Microsoft Yahei',sans-serif;
+}
+button {
+    margin: 15px 5px 15px 15px;
+    padding: 7px 18px;
+    border: 1px solid #d9d9d9;
+    background: #cdcdcd1f;
+    outline: none;
+    cursor: pointer;
+}
+button:hover {
+    background: #d3f3ff;
+}
+button:active {
+    background: #d3fffb;
+}
+a {
+    text-decoration: none;
+}
+.head {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    font-size: 17px;
+    padding-left: 30px;
+    background: white;
+    border-bottom: 1px solid #d9d9d9;
+}
+.head a {
+    float: left;
+    text-decoration: none;
+    color: black;
+    padding: .5em 1.2em .5em 1.2em;
+    border-top: inset transparent;
+    border-bottom: inset transparent;
+}
+.head a img {
+    height: 20px;
+    width: 20px;
+}
+.head > a > img {
+    margin-right: .3em;
+    vertical-align: -3px;
+}
+.head > a:not(.active) > img.icon-active {
+    display: none;
+}
+.head > a:not(.active):hover>img.icon-inactive {
+     display: none;
+}
+.head a:not(.active):hover>img.icon-active {
+    display: unset;
+}
+#nav-home:hover,#nav-home.active {
+    border-bottom-color: #0091EA;
+    color: #0091EA;
+}
+#nav-database:hover,#nav-database.active{
+    border-bottom-color: #ff3030;
+    color: #ff3030;
+}
+
+#nav-table:hover,#nav-table.active{
+    border-bottom-color: #00C853;
+    color: #00C853;
+}
+#nav-sql:hover,#nav-sql.active{
+    border-bottom-color: #311B92;
+    color: #311B92;
+}
+#exit {
+    float: right;
+    border: inset transparent;
+    vertical-align: middle;
+}
+#exit:hover {
+    background: red;
+    color: white;
+    border: inset transparent;
+}
+#exit:active {
+    background: #ff6f6d;
+}
+#fullScreen {
+    width: 100%;
+    height: 100%;
+    background: #00000047;
+    z-index: 9980;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+#close {
+    position: fixed;
+    top: 30%;
+    left: 43%;
+    z-index: 99999999;
+    width: 280px;
+    background: white;
+    border: 1px solid #0374ff8c;
+    box-shadow: 4px 7px #80808080;
+    display: none;
+}
+.close-head {
+    cursor: default;
+    background: #d9d9d914;
+    padding: 10px;
+    font-size: 17px;
+    border-bottom: 1px solid #d9d9d9;
+}
+.close-head a {
+    float: right;
+    margin: -10px;
+    padding: 7px;
+    color: black;
+    cursor: pointer;
+    border: inset transparent;
+}
+.close-head a:hover {
+    background: red;
+    color: white;
+}
+.close-head a:active {
+    background: #ff6f6d;
+}
+.close-body {
+    margin: 10px 10px 0 10px;
+    text-align: center;
+}
+
+.main {
+    margin-top: 50px;
+    width: 100%;
+}
+.left, .right {
+    margin: 30px 20px 0 20px;
+    border-radius: 10px;
+}
+@media screen and (min-width: 1220px) {
+    .left {
+        float: left;
+        width: 34.33%;
+    }
+    .right {
+        float: right;
+        width: 59%;
+    }
+}
+
+@media screen and (max-width: 1220px) {
+    .left, .right {
+        margin: 30px;
+    }
+    .left {
+        margin-top: 80px;
+    }
+}
+
+
+#loader {
+    display: none;
+    position: fixed;
+    top: 45%;
+    left: 45%;
+    z-index: 9999;
+    border: 6px solid #00f3dd47;
+    border-radius: 70%;
+    border-top: 6px solid #3498dbad;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#msg{
+    text-align:center;
+    color: #ffffff;
+    font-size:14px;
+    z-index:9999;
+    position: fixed;
+    padding: 10px;
+    top:0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 500px;
+    display: none;
+}
+#msg-close {
+    float: right;
+    color: #eaeaea;
+    cursor: pointer;
+}
+#msg-close:hover {
+    color: #dedede;
+}
+#msg-close:active {
+    color: #ffffff;
+}
+
+.msgShow{
+    animation-name:fadeInUp;
+    animation-duration:1s;
+}
+@keyframes fadeInUp{
+    0%{
+        opacity:0;
+        transform:translateY(20px)
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0)
+    }
+}
+
+#refresh {
+    float: right;
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+}
+
+#refresh:hover, #refresh:active{
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* 表格中，跳转访问的链接 */
+.access {
+    color: black;
+    text-decoration: #289bff underline;;
+}
+.access:hover {
+    color: #757575;
+}
+.access:active {
+    color: #d6d6d6;
+}
+
+/* 表格中，指向删除的链接 */
+.delete {
+    color: red;
+
+}
+.delete:hover {
+    color: #ff2f17;
+}
+.delete:active {
+    color: #ff6957;
+}
+
+/* 表格中，指向编辑的链接 */
+.edit {
+    color: black;
+    text-decoration: black underline;
+}
+
+/* 表格中，默认文字颜色 */
+.handsontable .htDimmed {
+    color: black;
+}
+
+/* 表格中，表头背景 */
+.handsontable thead th {
+    background: #d9d9d914;
+}
+/* 通用块设置 */
+.block{
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    animation: bounceInUp 1s;
+	
+}
+.block-head{
+    background: #fcfcfc;
+    border-bottom: 1px solid #d9d9d9;
+    color: black;
+    padding: 9px 9px 9px 16px;
+    font-size: 18px;
+    border-radius: 10px 10px 0 0;
+    cursor: default;
+}
+.block-body{
+    padding: 18px 10px;
+    background: white;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+}
+
+/* 表格中，左下角的more */
+.more{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 9970;
+}
+#more {
+    background: #fff794;
+    padding: 10px;
+}
+#more:hover,#newDelete:hover,#viewEdit:hover{
+    color: #00000085;
+}
+.subMore {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 0;
+}
+#newDelete {
+    background: #7ffb4a;
+}
+#viewEdit {
+    background: #6bfbff;
+}
+#more-info {
+    display: none;
+}
+
+.input {
+    font-size: 16px;
+    width: 45%;
+    margin: 8px;;
+    height: 25px;
+}
+
+#popUpEdit {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 55%;
+    z-index: 9990;
+    box-shadow: 4px 7px #80808080;
+    animation-name: popUpShow;
+    animation-duration: 1s;
+}
+#editClose {
+    float: right;
+    margin: -10px;
+    padding: 7px;
+    color: black;
+    cursor: pointer;
+    border: inset transparent;
+}
+#editClose:hover {
+    background: red;
+    color: white;
+}
+ #editClose:active {
+    background: #ff6f6d;
+}
+#popUpEdit-body {
+    padding-bottom: 0;
+}
+
+#dataTable .htAutocompleteArrow {
+    display: none;
+}
+
+@keyframes popUpShow {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1);
+    }
+    90% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+
+}
+@-webkit-keyframes bounceInUp {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3000px, 0);
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bounceInUp {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  from {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
